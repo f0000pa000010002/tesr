@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem - Radeem App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYjBmMSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUg44CQY29kZSI+PHBhdGggZD0iTTQgMTJsOCA4IDggOCIvPjxwYXRoIGQ9Ik0xNiAxMmw4IDggOC04Ii8+PHBhdGggZD0iTTQgMTRsOCA4IDggOCIvPjxwYXRoIGQ9Ik0xNiAxNGw4IDggOC04Ii8+PC9zdmc+" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h2>Redeem Rewards</h2>
+        </header>
+
+        <main class="redeem-main">
+            <div class="redeem-form-container card">
+                <h3>Redeem 10 Rupees</h3>
+                <div class="redeem-info">
+                    <span>Cost: 900 Coins</span>
+                    <span>Reward: 10 Rupees</span>
+                </div>
+                <div class="redeem-info">
+                    <span>Your Coins: <span id="current-coins">0</span></span>
+                    <span>Your Diamonds: <span id="current-diamonds">0</span></span>
+                </div>
+                <form id="redeem-form">
+                    <button type="submit" class="btn btn-primary">Redeem Now</button>
+                </form>
+            </div>
+
+            <section class="redeem-history card">
+                <h3>Redeem History</h3>
+                <ul id="redeem-history-list">
+                    <li class="redeem-item placeholder">Loading history...</li>
+                </ul>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="dashboard.html" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="#" id="earn-nav-link" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-circle"><circle cx="12" cy="12" r="10"/><path d="M10 8v8l6-4-6-4z"/></svg>
+                <span>Earn</span>
+            </a>
+            <a href="#" id="mystery-box-nav-link" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-open"><path d="M21 16V9a2 2 0 0 0-2-2h-5l-3-6a2 2 0 0 0-3.54 0l-3 6H3a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12m0-14h6m-6 0v14"/><path d="M7 17h10"/></svg>
+                <span>Box</span>
+            </a>
+            <a href="redeem.html" class="nav-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket">
+                    <path d="M15 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/>
+                    <path d="M14 10h-4"/>
+                    <path d="M14 14h-4"/>
+                </svg>
+                <span>Redeem</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Watch Ad Modal (integrated for Earn nav link) -->
+    <div id="watch-ad-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Watch an Ad</h3>
+            <p>Watch a short ad to earn 1 Diamond.</p>
+            <div id="ad-spinner" class="spinner" style="width: 40px; height: 40px; border-width: 4px; border-top-color: var(--accent-color);"></div>
+            <button id="watch-ad-btn" class="btn btn-primary">Watch Ad</button>
+            <div id="ad-reward-animation"></div>
+        </div>
+    </div>
+
+    <!-- Mystery Box Modal -->
+    <div id="mystery-box-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Open Mystery Box</h3>
+            <p>Cost: 19 Diamonds</p>
+            <div id="mystery-box-container">
+                <!-- Animated Box Content -->
+            </div>
+            <p>You have: <span id="box-current-diamonds">0</span> Diamonds</p>
+            <button id="open-box-btn" class="btn btn-primary">Open Box</button>
+            <div id="reward-reveal"></div>
+        </div>
+    </div>
+
+    <script src="firebase.js"></script>
+    <script src="auth.js"></script>
+    <script src="database.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

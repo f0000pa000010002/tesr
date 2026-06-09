@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Radeem App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwYjBmMSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUg44CQY29kZSI+PHBhdGggZD0iTTQgMTJsOCA4IDggOCIvPjxwYXRoIGQ9Ik0xNiAxMmw4IDggOC04Ii8+PHBhdGggZD0iTTQgMTRsOCA4IDggOCIvPjxwYXRoIGQ9Ik0xNiAxNGw4IDggOC04Ii8+PC9zdmc+" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80" alt="Radeem App Logo" class="auth-logo">
+            <h2>Welcome Back!</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="button" id="google-signin-btn" class="btn btn-google">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24"><path fill="#fbc02d" d="M43.611,20.03C43.489,19.318,42.762,18.75,41.95,18.75H24v7.534h11.347c-0.44,2.352-1.776,4.337-3.716,5.657v4.745h7.111C41.152,35.037,43.489,28.39,43.611,20.03z"/><path fill="#1e88e5" d="M24,44c2.516,0,4.705-0.83,6.431-2.293l-6.431-4.949H14.928c-2.495,0-4.652,1.577-5.431,3.757l4.949,3.757C19.348,43.17,21.516,44,24,44z"/><path fill="#30a247" d="M14.928,18.75H24v7.534H10.121c-0.78,2.18-3.037,3.757-5.431,3.757l-4.949-3.757C4.705,24.268,6.862,22.75,9.072,22.75h5.856V18.75z"/><path fill="#e53935" d="M43.611,20.03C43.489,19.318,42.762,18.75,41.95,18.75H24v7.534h11.347c-0.44,2.352-1.776,4.337-3.716,5.657v4.745h7.111C41.152,35.037,43.489,28.39,43.611,20.03z"/><path fill="#fff" d="M11.504,30.757l-4.949-3.757c-0.78-2.18-3.037-3.757-5.431-3.757H4.928l4.949,3.757C7.777,28.39,9.934,29.87,11.504,30.757z"/></svg>
+                    Sign in with Google
+                </button>
+            </form>
+            <div class="auth-options">
+                <a href="register.html">Don't have an account? Sign Up</a>
+                <a href="forgot-password.html">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    <script src="firebase.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
